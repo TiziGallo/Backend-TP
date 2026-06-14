@@ -15,7 +15,6 @@ exports.getAllTransacciones = async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 };
 
-// Histórico por email (clave)
 exports.getByEmail = async (req, res) => {
     try {
         const historico = await Transaccion.findAll({ where: { emailCliente: req.params.email } });
@@ -23,7 +22,6 @@ exports.getByEmail = async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 };
 
-// Origen y Destino por parámetros (PARAMS)
 exports.getByIdiomas = async (req, res) => {
     try {
         const { origen, destino } = req.params;

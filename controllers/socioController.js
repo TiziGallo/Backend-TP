@@ -1,6 +1,5 @@
 const Socio = require('../models/Socio');
 
-// Dar de alta un Socio (POST) [cite: 10]
 exports.createSocio = async (req, res) => {
     try {
         const socio = await Socio.create(req.body);
@@ -10,7 +9,6 @@ exports.createSocio = async (req, res) => {
     }
 };
 
-// Recuperar TODOS los Socios (GET) [cite: 10]
 exports.getAllSocios = async (req, res) => {
     try {
         const socios = await Socio.findAll();
@@ -20,7 +18,6 @@ exports.getAllSocios = async (req, res) => {
     }
 };
 
-// Eliminar un Socio (DELETE) [cite: 10]
 exports.deleteSocio = async (req, res) => {
     try {
         await Socio.destroy({ where: { id: req.params.id } });
@@ -30,7 +27,6 @@ exports.deleteSocio = async (req, res) => {
     }
 };
 
-// Modificar un Socio (PUT) [cite: 10]
 exports.updateSocio = async (req, res) => {
     try {
         await Socio.update(req.body, { where: { id: req.params.id } });
@@ -40,7 +36,6 @@ exports.updateSocio = async (req, res) => {
     }
 };
 
-// Recuperar los socios ACTIVOS (GET) [cite: 10]
 exports.getActiveSocios = async (req, res) => {
     try {
         const activos = await Socio.findAll({ where: { activo: true } });

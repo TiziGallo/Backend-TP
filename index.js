@@ -6,15 +6,12 @@ const publicacionRoutes = require('./routes/publicacionRoutes'); // Importamos l
 
 const app = express();
 
-// Middleware para entender JSON
 app.use(express.json());
 
-// Rutas
 app.use('/socios', socioRoutes);
 app.use('/transacciones', transaccionRoutes);
 app.use('/publicaciones', publicacionRoutes); // Registramos las rutas de publicaciones
 
-// Sincronizar base de datos y arrancar servidor
 sequelize.sync().then(() => {
     console.log('Base de datos conectada y sincronizada.');
     app.listen(3000, () => {

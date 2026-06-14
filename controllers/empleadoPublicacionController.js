@@ -2,7 +2,6 @@ const Empleado = require('../models/Empleado');
 const Publicacion = require('../models/Publicacion');
 const { Op } = require('sequelize');
 
-// 1. Dar de alta un Empleado (POST) [cite: 14]
 exports.createEmpleado = async (req, res) => {
     try {
         const empleado = await Empleado.create(req.body);
@@ -10,7 +9,6 @@ exports.createEmpleado = async (req, res) => {
     } catch (e) { res.status(400).json({ error: e.message }); }
 };
 
-// 2. Dar de alta una Publicación (POST) [cite: 14]
 exports.createPublicacion = async (req, res) => {
     try {
         // req.body debe incluir empleadoId

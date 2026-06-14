@@ -10,7 +10,6 @@ const Publicacion = sequelize.define('Publicacion', {
   vigente: { type: DataTypes.BOOLEAN, defaultValue: true }
 });
 
-// Relación: Una Publicación pertenece a un Empleado 
 Publicacion.belongsTo(Empleado, { foreignKey: 'empleadoId' });
 
 module.exports = Publicacion;
