@@ -475,17 +475,9 @@
           "type": "string",
           "example": "Gomez"
         },
-        "foto": {
-          "type": "string",
-          "example": "https://imagen.com/foto.jpg"
-        },
         "dni": {
           "type": "string",
           "example": "40123456"
-        },
-        "numeroSocio": {
-          "type": "number",
-          "example": 1001
         },
         "activo": {
           "type": "boolean",

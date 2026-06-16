@@ -46,9 +46,7 @@ const doc = {
     Socio: {
       nombre: 'Carlos',
       apellido: 'Gomez',
-      foto: 'https://imagen.com/foto.jpg',
       dni: '40123456',
-      numeroSocio: 1001,
       activo: true
     },
 
