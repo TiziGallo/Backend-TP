@@ -1,8 +1,12 @@
 const express = require('express');
 const { sequelize } = require('./config/db');
+
 const socioRoutes = require('./routes/socioRoutes');
 const transaccionRoutes = require('./routes/transaccionRoutes');
-const publicacionRoutes = require('./routes/publicacionRoutes'); // Importamos las rutas del PTO 3
+const publicacionRoutes = require('./routes/publicacionRoutes');
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
 
 const app = express();
 
@@ -10,10 +14,13 @@ app.use(express.json());
 
 app.use('/socios', socioRoutes);
 app.use('/transacciones', transaccionRoutes);
-app.use('/publicaciones', publicacionRoutes); // Registramos las rutas de publicaciones
+app.use('/publicaciones', publicacionRoutes);
 
-sequelize.sync().then(() => {
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+sequelize.sync({ force: false }).then(() => {
     console.log('Base de datos conectada y sincronizada.');
+
     app.listen(3000, () => {
         console.log('Servidor corriendo en http://localhost:3000');
     });
